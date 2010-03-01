@@ -1,22 +1,25 @@
 # TODO
 # - kill -O overriding our optflags
+# - Package: calendar-timezones
+# - Package: calendar-google-provider
+# - Package: iceowl-extension
 #
 # Conditional build:
 %bcond_with	tests	# enable tests (whatever they check)
 %bcond_without	gnomeui		# disable gnomeui support
 %bcond_without	gnomevfs	# disable GNOME comp. (gconf+libgnome+gnomevfs) and gnomevfs ext.
 %bcond_without	gnome		# disable all GNOME components (gnome+gnomeui+gnomevfs)
-#
+
 %if %{without gnome}
 %undefine	with_gnomeui
 %undefine	with_gnomevfs
 %endif
-#
-Summary:	Mozilla Sunbird - standalone calendar application
-Summary(pl.UTF-8):	Mozilla Sunbird - samodzielny kalendarz
-Name:		mozilla-sunbird
+
+Summary:	Standalone Calendar Application
+Summary(pl.UTF-8):	Samodzielny kalendarz
+Name:		iceowl
 Version:	0.9
-Release:	1
+Release:	0.1
 License:	MPL/LGPL
 Group:		X11/Applications/Networking
 Source0:	ftp://ftp.mozilla.org/pub/mozilla.org/calendar/sunbird/releases/%{version}/source/lightning-sunbird-%{version}-source.tar.bz2
@@ -67,12 +70,10 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %define		specflags	-fno-strict-aliasing
 
 %description
-The Sunbird Project is a cross platform standalone calendar
-application based on Mozilla's XUL user interface language.
-
-%description -l pl.UTF-8
-Projekt Sunbird to wieloplatformowa aplikacja bedąca samodzielnym
-kalendarzem, oparta na języku interfejsu użytkownika XUL.
+Iceowl is a Mozilla Based Calendar application. The goal is to produce
+a cross platform stand alone Calendar application using the XUL user
+interface language. Iceowl leaves a somewhat smaller memory footprint
+than the Mozilla suite.
 
 %prep
 %setup -q -c
