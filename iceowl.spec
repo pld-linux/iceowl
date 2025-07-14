@@ -77,9 +77,9 @@ than the Mozilla suite.
 %prep
 %setup -q -c
 cd mozilla
-%patch0 -p1
-%patch1 -p2
-%patch2 -p1
+%patch -P0 -p1
+%patch -P1 -p2
+%patch -P2 -p1
 
 %build
 cd mozilla
